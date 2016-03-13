@@ -7,7 +7,7 @@ in your broser.
 
 Connect to http://zabbix.org/zabbix/ (guest user) and get all hosts:
 
-![Zapix doc](https://raw.githubusercontent.com/monitoringartist/zapix/master/doc/zabbix-zapix.gif)
+![Zapix doc](https://raw.githubusercontent.com/monitoringartist/zapix/gh-pages/doc/zabbix-zapix.gif)
 
 Please donate to author, so he can continue to publish other awesome projects 
 for free:
