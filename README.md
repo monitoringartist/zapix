@@ -1,7 +1,10 @@
 # Zapix - online Zabbix API tool
 
-Visit http://monitoringartist.github.io/zapix/ and test your Zabbix API query
-in your broser
+Visit https://monitoringartist.github.io/zapix/ and test your Zabbix API query
+in your broser.
+
+Quick start:
+
 
 # Original project
 
