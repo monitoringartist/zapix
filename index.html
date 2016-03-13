@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Zapix</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<span class="brand">Zapix</span>
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li><a data-toggle="modal" href="#connections">Connect</a></li>
+				</ul>
+				<p id="connInfo" class="navbar-text pull-right"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Connection manager modal -->
+<div class="modal" id="connections" style="display: none;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>Connection manager</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="span3">
+				<form>
+					<label for="host">Host</label>
+					<input id="host" type="url" name="host" />
+					<label for="login">Login</label>
+					<input id="login" type="text" name="login" />
+					<label for="password">Password</label>
+					<input id="password" type="password" name="password" />
+					<label for="xdebugssid">X-DEBUG SID</label>
+					<input id="xdebugssid" type="text" name="xdebugssid" />
+					<div class="control-group">
+						<button class="btn" type="button" id="connAdd">Store</button>
+						<button class="btn btn-primary" type="button" id="loginButton">
+							Connect
+							<i class="icon-share-alt icon-white"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="span3" style="border-left: 1px solid #CCCCCC; padding-left: 20px;">
+				<form>
+					<label for="connList">Stored connections</label>
+					<select size="10" id="connList" name="connections"></select>
+					<div class="control-group">
+						<button class="btn btn-mini" type="button" id="connRemove">Remove</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Save request modal -->
+<div class="modal" id="saveRequestModal" style="display: none;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>Save request</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="saveRequestName">Name</label>
+				<div class="controls">
+					<input type="text" id="saveRequestName">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="saveRequestMethod">Method</label>
+				<div class="controls">
+					<input type="text" id="saveRequestMethod">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="saveRequestParams">Request</label>
+				<div class="controls">
+					<textarea class="saveRequestParams" id="saveRequestParams"></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a href="#" id="saveRequestOk" class="btn btn-success">Save <i class="icon-ok icon-white"></i></a>
+		<a href="#" data-dismiss="modal" class="btn">Cancel</a>
+	</div>
+</div>
+
+<!-- Load request modal -->
+<div class="modal" id="loadRequestModal" style="display: none;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>Load request</h3>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="control-group">
+				<div class="controls">
+					<select id="savedRequests" size="8" class="span5"></select>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button id="removeSavedRequest" class="btn btn-mini" type="button">Remove</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a href="#" id="loadRequestOk" class="btn btn-success">Load</a>
+		<a href="#" data-dismiss="modal" class="btn">Cancel</a>
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row-fluid" style="min-width: 1000px;">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span6">
+					<form class="form-inline">
+						<div class="control-group">
+							<input id="apimethod" class="span5" type="text" name="apimethod" placeholder="class.method" />
+							<a id="saveRequest" data-toggle="modal" href="#saveRequestModal" class="btn btn-mini" type="button">Save</a>
+							<a id="loadRequest" data-toggle="modal" href="#loadRequestModal" class="btn btn-mini" type="button">Load</a>
+						</div>
+						<div class="control-group">
+							<textarea id="apiparams" name="apiparams"
+									placeholder="parameters as JSON object: {&quot;param1&quot;: &quot;value1&quot;, &quot;param2&quot;: &quot;value2&quot;, ...}"></textarea>
+						</div>
+						<div class="control-group">
+							<button id="execute" class="btn btn-primary" type="button">
+								Execute
+								<i class="icon-play icon-white"></i>
+							</button>
+							<span id="formatJSON" class="pseudoLink">check/format JSON</span>
+						</div>
+					</form>
+				</div>
+				<div class="span6">
+					Request:
+					<pre><code id="request" class="language-js"></code></pre>
+				</div>
+			</div>
+			Response:
+			<pre><code id="response" class="language-js"></code></pre>
+		</div>
+	</div>    
+</div>
+<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jsonrpc.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+</body>
+</html>

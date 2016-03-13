@@ -1,0 +1,26 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.pseudoLink{
+	color: #00008b;
+	border-bottom: 1px dotted #00008b;
+	cursor: pointer;
+}
+
+.pseudoLink:hover{
+	color: #4b0082;
+	border-bottom: 1px dotted #4b0082;
+}
+
+#apiparams {
+	width: 100%;
+	height: 300px;
+}
+
+#saveRequestParams {
+	width: 350px;
+	height: 200px;
+}
+
