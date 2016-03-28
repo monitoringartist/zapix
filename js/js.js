@@ -157,6 +157,28 @@ $(document).ready(function() {
 			alert(e);
 		}
 	});
+    
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+    
+        // an array that will be populated with substring matches
+        matches = [];
+    
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+    
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push(str);
+          }
+        });
+    
+        cb(matches);
+      };
+    };    
 
 	$('#apimethod').typeahead({
 		hint: true,
@@ -165,7 +187,7 @@ $(document).ready(function() {
 	},
 	{
 		name: 'apimethods',
-		source: ["action.create",
+		source: substringMatcher(["action.create",
 			"action.delete",
 			"action.get",
 			"action.update",
@@ -344,38 +366,38 @@ $(document).ready(function() {
 			"user.deletemedia",
 			"user.get",
 			"user.isreadable",
-								"user.iswritable",
-								"user.login",
-					            "user.logout",
-					            "user.update",
-					            "user.updatemedia",
-					            "user.updateprofile",
-								"usergroup.create",
-								"usergroup.delete",
-								"usergroup.get",
-								"usergroup.isreadable",
-					            "usergroup.iswritable",
-					            "usergroup.massadd",
-					            "usergroup.massupdate",
-								"usergroup.update",
-					            "usermacro.create",
-								"usermacro.createglobal",
-					            "usermacro.delete",
-								"usermacro.deleteglobal",
-								"usermacro.get",
-								"usermacro.update",
-								"usermacro.updateglobal",
-					            "valuemap.create",
-					            "valuemap.delete",
-					            "valuemap.get",
-					            "valuemap.update",
+			"user.iswritable",
+			"user.login",
+            "user.logout",
+            "user.update",
+            "user.updatemedia",
+            "user.updateprofile",
+			"usergroup.create",
+			"usergroup.delete",
+			"usergroup.get",
+			"usergroup.isreadable",
+            "usergroup.iswritable",
+            "usergroup.massadd",
+            "usergroup.massupdate",
+			"usergroup.update",
+            "usermacro.create",
+			"usermacro.createglobal",
+            "usermacro.delete",
+			"usermacro.deleteglobal",
+			"usermacro.get",
+			"usermacro.update",
+			"usermacro.updateglobal",
+            "valuemap.create",
+            "valuemap.delete",
+            "valuemap.get",
+            "valuemap.update",
 			"httptest.create",
 			"httptest.delete",
 			"httptest.get",
 			"httptest.isreadable",
 			"httptest.iswritable",
 			"httptest.update"
-		]
+		])
 	});
 
 });
