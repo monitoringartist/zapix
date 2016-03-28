@@ -24,3 +24,19 @@ body {
 	height: 200px;
 }
 
+.tt-menu {
+background-color: #fff;
+border-bottom: 1px solid gray;
+border-left: 1px solid gray;
+border-right: 1px solid gray;
+}
+
+.tt-selectable {
+cursor: pointer;
+padding: 2px 8px 2px 8px;
+}
+
+.tt-selectable:hover {
+background-color: #0088CC;
+color: #fff;
+}
