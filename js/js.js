@@ -187,6 +187,7 @@ $(document).ready(function() {
 	},
 	{
 		name: 'apimethods',
+        limit: 14,
 		source: substringMatcher(["action.create",
 			"action.delete",
 			"action.get",
