@@ -164,6 +164,7 @@ $(document).ready(function() {
 		minLength: 1
 	},
 	{
+		name: 'apimethods',
 		source: ["action.create",
 			"action.delete",
 			"action.get",
