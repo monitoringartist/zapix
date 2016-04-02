@@ -134,6 +134,7 @@ $(document).ready(function() {
 	});
 
 	$('#execute').click(function() {
+        testOnly();
 		var params;
 		try {
 			params = $('#apiparams').val();
@@ -143,31 +144,76 @@ $(document).ready(function() {
 			jsonRpc.call($('#apimethod').val(), params);
 		}
 		catch(e) {
-			alert(e);
+			//alert(e);
 		}
 	});
 
+    function testOnly(){
+        if ($('#apiparams').val() == '') {
+            $('#apiparams').parent().removeClass('error');
+            $('#testResult').hide();
+            return true;
+        }
+        lint = window.JSONLint( $('#apiparams').val(), { comments: false } );
+
+        if ( ! lint.error ) {
+			$('#apiparams').parent().removeClass('error');
+            $('#testResult').hide();
+		}
+		else {
+			$('#apiparams').parent().addClass('error');
+            $('#testResult').show();
+            $('#testResult').html([
+				lint.error + "<br>" +
+				"<b>Evidence:</b> " + lint.evidence + "<br>" +
+				"<b>Line:</b> " + lint.line + "<br>" +
+				"<b>Character:</b> " + lint.character
+			].join(''));
+		}
+    }
+
 	$('#formatJSON').click(function(){
 		var params;
-		try {
-			params = JSON.parse($('#apiparams').val());
-			$('#apiparams').val(JSON.stringify(params, null, 4));
+        if ($('#apiparams').val() == '') {
+            $('#apiparams').parent().removeClass('error');
+            $('#testResult').hide();
+            return true;
+        }
+        lint = window.JSONLint( $('#apiparams').val(), { comments: false } );
+
+        if ( ! lint.error ) {
+			$('#apiparams').parent().removeClass('error');
+            $('#testResult').hide();
+    	    try {
+    			params = JSON.parse($('#apiparams').val());
+    			$('#apiparams').val(JSON.stringify(params, null, 4));
+    		}
+    		catch(e) {
+    			alert(e);
+    		}
 		}
-		catch(e) {
-			alert(e);
+		else {
+			$('#apiparams').parent().addClass('error');
+            $('#testResult').show();
+            $('#testResult').html([
+				lint.error + "<br>" +
+				"<b>Evidence:</b> " + lint.evidence + "<br>" +
+				"<b>Line:</b> " + lint.line + "<br>" +
+				"<b>Character:</b> " + lint.character
+			].join(''));
 		}
 	});
-    
+
     var substringMatcher = function(strs) {
       return function findMatches(q, cb) {
         var matches, substringRegex;
-    
+
         // an array that will be populated with substring matches
         matches = [];
-    
+
         // regex used to determine if a string contains the substring `q`
         substrRegex = new RegExp(q, 'i');
-    
+
         // iterate through the pool of strings and for any string that
         // contains the substring `q`, add it to the `matches` array
         $.each(strs, function(i, str) {
@@ -175,10 +221,10 @@ $(document).ready(function() {
             matches.push(str);
           }
         });
-    
+
         cb(matches);
       };
-    };    
+    };
 
 	$('#apimethod').typeahead({
 		hint: true,

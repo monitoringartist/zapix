@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Zapix - online Zabbix API tool</title>    
+	<title>ZAPIX - online Zabbix API tool</title>    
     <link rel="shortcut icon" href="assets/favicon.ico">
     <link rel="icon" href="assets/favicon.png">        
     <meta content="Zapix - online Zabbix API tool" property="og:title">
@@ -25,12 +25,13 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
-			<span class="brand">Zapix</span>
+			<span class="brand"><a href="#">ZAPIX</a></span>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li><a data-toggle="modal" href="#connections">Connect</a></li>
                     <li><a target="_blank" href="https://www.zabbix.com/documentation/3.0/manual/api">Zabbix 3.0 API manual</a></li>
                     <li><a target="_blank" href="https://github.com/monitoringartist/zapix">Star and fork me on GitHub</a>
+                    <li><a target="_blank" href="http://www.monitoringartist.com">Monitoring Artist Ltd</a>
 				</ul>
                 
 				<p id="connInfo" class="navbar-text pull-right"></p>
@@ -149,6 +150,7 @@
 					<form class="form-inline">
 						<div class="control-group">
 							<input id="apimethod" class="span5" type="text" name="apimethod" placeholder="class.method" />
+                            <!--a id="docLink" target="_blank" disabled="true" href="https://www.zabbix.com/documentation/3.0/manual/api/reference/ event/get" class="btn btn-mini" type="button">Doc</a -->
 							<a id="saveRequest" data-toggle="modal" href="#saveRequestModal" class="btn btn-mini" type="button">Save</a>
 							<a id="loadRequest" data-toggle="modal" href="#loadRequestModal" class="btn btn-mini" type="button">Load</a>
 						</div>
@@ -162,6 +164,7 @@
 								<i class="icon-play icon-white"></i>
 							</button>
 							<span id="formatJSON" class="pseudoLink">check/format JSON</span>
+                            <div id="testResult" class="alert alert-danger" style="display: none"></div>
 						</div>
 					</form>
 				</div>
@@ -179,6 +182,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/jsonrpc.js"></script>
+<script type="text/javascript" src="js/jsonlint.js"></script>
 <script type="text/javascript" src="js/js.js"></script>
 </body>
 </html>
