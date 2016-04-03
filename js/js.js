@@ -176,6 +176,12 @@ $(document).ready(function() {
     function paramsUpdate() {
         location.hash = 'apimethod=' + encodeURIComponent($('#apimethod').val()) + '&apiparams=' + encodeURIComponent($('#apiparams').val());
     }
+    
+    $('#compressJSON').click(function(){
+        var params;
+        params = JSON.parse($('#apiparams').val());
+        $('#apiparams').val(JSON.stringify(params, null, null));
+    });        
 
 	$('#formatJSON').click(function(){
 		var params;
