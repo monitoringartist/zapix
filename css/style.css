@@ -71,7 +71,7 @@ border-bottom: 3px solid transparent;
 border-top: 3px solid transparent;
 color: rgba(255, 255, 255, 0.75);
 }
-.nav li > a:hover {
+.nav li > a:hover, .nav li > a:focus {
 border-bottom: 3px solid #1384c7;
 color: white;
 } 
