@@ -181,6 +181,7 @@ $(document).ready(function() {
         var params;
         params = JSON.parse($('#apiparams').val());
         $('#apiparams').val(JSON.stringify(params, null, null));
+        paramsUpdate();
     });        
 
 	$('#formatJSON').click(function(){
