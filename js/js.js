@@ -456,9 +456,7 @@ $(document).ready(function() {
             $('#apiparams').val(prms['apiparams']);
         }         
   }
-
 });
-
 
 $(document).on('search keyup change', '#apimethod', function () {
     var prms = getHashParams();
@@ -470,7 +468,7 @@ $(document).on('search keyup change', '#apimethod', function () {
     location.hash = 'apimethod=' + encodeURIComponent($(this).val()) + '&' + hash;
 })
 
-$(document).on('search keyup', '#apiparams', function () {
+$(document).on('search keyup change', '#apiparams', function () {
     var prms = getHashParams();
     var hash = '';
     delete prms['apiparams']; 
