@@ -135,6 +135,7 @@ $(document).ready(function() {
 
 	$('#execute').click(function() {
         testOnly();
+        paramsUpdate();
 		var params;
 		try {
 			params = $('#apiparams').val();
@@ -170,6 +171,10 @@ $(document).ready(function() {
 				"<b>Character:</b> " + lint.character
 			].join(''));
 		}
+    }
+    
+    function paramsUpdate() {
+        location.hash = 'apimethod=' + encodeURIComponent($('#apimethod').val()) + '&apiparams=' + encodeURIComponent($('#apiparams').val());
     }
 
 	$('#formatJSON').click(function(){
