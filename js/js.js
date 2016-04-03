@@ -446,5 +446,48 @@ $(document).ready(function() {
 			"httptest.update"
 		])
 	});
+    
+    if (location.hash.length) {
+        var prms = getHashParams();
+        if ('apimethod' in prms) { 
+            $('#apimethod').val(prms['apimethod']);
+        }
+        if ('apiparams' in prms) { 
+            $('#apiparams').val(prms['apiparams']);
+        }         
+  }
 
 });
+
+
+$(document).on('search keyup change', '#apimethod', function () {
+    var prms = getHashParams();
+    var hash = '';
+    delete prms['apimethod']; 
+    $.each( prms, function( key, value ) {    
+        hash = key + "=" + encodeURIComponent(value) + '&';
+    });
+    location.hash = 'apimethod=' + encodeURIComponent($(this).val()) + '&' + hash;
+})
+
+$(document).on('search keyup', '#apiparams', function () {
+    var prms = getHashParams();
+    var hash = '';
+    delete prms['apiparams']; 
+    $.each( prms, function( key, value ) {    
+        hash = key + "=" + encodeURIComponent(value) + '&';
+    });
+    location.hash = hash + 'apiparams=' + encodeURIComponent($(this).val());
+})
+
+function getHashParams() {
+    var hashParams = {};
+    var e,
+        a = /\+/g,  //Regex for replacing addition symbol with a space
+        r = /([^&;=]+)=?([^&;]*)/g,
+        d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+        q = window.location.hash.substring(1);
+    while (e = r.exec(q))
+       hashParams[d(e[1])] = d(e[2]);
+    return hashParams;
+}
