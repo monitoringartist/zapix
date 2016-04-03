@@ -199,6 +199,7 @@ $(document).ready(function() {
     	    try {
     			params = JSON.parse($('#apiparams').val());
     			$('#apiparams').val(JSON.stringify(params, null, 4));
+                paramsUpdate();
     		}
     		catch(e) {
     			alert(e);
