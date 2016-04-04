@@ -19,7 +19,7 @@ var jsonRpc = (function($) {
 			this.call('user.login', {user: user, password: pass}, function(result) {
 				sessionid = result;
 				$('#connections').modal('hide');
-				$("#connInfo").text('Connected to ' + config.host);
+				$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
 			});
 		},
 
