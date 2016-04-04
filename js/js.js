@@ -284,6 +284,18 @@ CConfig.prototype = {
 };
 
 $(document).ready(function() {
+    $('#loadMe').click(function (e) {
+    if ($('#load').css('display') == 'none') {
+        var docUrl = "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/')
+        if ($("#load").attr("src") != docUrl) {        
+            $("#load").attr("src", docUrl);
+        }
+        $('#load').show();
+    } else {
+       $('#load').hide();               
+    }
+    });
+    
 	config = new CConfig();
 
 	$('#saveRequest').click(function() {
@@ -511,17 +523,3 @@ function getHashParams() {
        hashParams[d(e[1])] = d(e[2]);
     return hashParams;
 }
-
-$(document).ready(function () {
-    $('#loadMe').click(function (e) {
-    if ($('#load').css('display') == 'none') {
-        var docUrl = "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/')
-        if ($("#load").attr("src") != docUrl) {        
-            $("#load").attr("src", docUrl);
-        }
-        $('#load').show();
-    } else {
-       $('#load').hide();               
-    }
-    });
-});
