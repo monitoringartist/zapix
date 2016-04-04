@@ -86,3 +86,12 @@ margin-top: 0.5em;
 margin-top: 12px;
 margin-bottom: 14px;
 }
+#load {
+   position: absolute;
+   left: 10px;
+   top: 105px;
+   width: 98%;
+   height: 95%;
+   display:none;
+   background-color: #fff;
+}
