@@ -515,8 +515,11 @@ function getHashParams() {
 $(document).ready(function () {
     $('#loadMe').click(function (e) {
     if ($('#load').css('display') == 'none') {
+        var docUrl = "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/')
+        if if ($("#load").attr("src") != docUrl) {        
+            $("#load").attr("src", docUrl);
+        }
         $('#load').show();
-        $("#load").attr("src", "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/'));
     } else {
        $('#load').hide();               
     }
