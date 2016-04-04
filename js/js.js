@@ -163,7 +163,8 @@ $(document).ready(function() {
 		}
 		else {
 			$('#apiparams').parent().addClass('error');
-            $('#testResult').show();
+            $('#response, #request').empty();
+            $('#testResult').show();            
             $('#testResult').html([
 				lint.error + "<br>" +
 				"<b>Evidence:</b> " + lint.evidence + "<br>" +
@@ -195,6 +196,7 @@ $(document).ready(function() {
 
         if ( ! lint.error ) {
 			$('#apiparams').parent().removeClass('error');
+            $('#response, #request').empty();
             $('#testResult').hide();
     	    try {
     			params = JSON.parse($('#apiparams').val());
