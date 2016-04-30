@@ -388,6 +388,7 @@ $(document).ready(function() {
 		else {
 			$('#apiparams').parent().addClass('error');
             $('#response, #request').empty();
+            $('#responsetime').text("");
             $('#testResult').show();            
             $('#testResult').html([
 				lint.error + "<br>" +
@@ -421,6 +422,7 @@ $(document).ready(function() {
         if ( ! lint.error ) {
 			$('#apiparams').parent().removeClass('error');
             $('#response, #request').empty();
+            $('#responsetime').text("");
             $('#testResult').hide();
     	    try {
     			params = JSON.parse($('#apiparams').val());

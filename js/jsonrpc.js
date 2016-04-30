@@ -5,7 +5,9 @@ var jsonRpc = (function($) {
 
 	var sessionid = null,
 		hostname,
-		id = 0;
+		id = 0,
+        ajaxTime = 0,
+        totalTime = 0;
 
 	return {
 		connect: function(host, user, pass, params) {
@@ -41,6 +43,7 @@ var jsonRpc = (function($) {
 
 			$('#response, #request').empty();
 			$('#request').html(request);
+            ajaxTime= new Date().getTime();
 
 			$.ajax({
 				url: hostname,
@@ -51,6 +54,8 @@ var jsonRpc = (function($) {
 				data: request,
 				dataType: "text",
 				success: function(result) {
+                    totalTime = new Date().getTime() - ajaxTime;
+                    $('#responsetime').text(" (" + totalTime/1000 + "s)");                    
 					try {
 						result = JSON.parse(result);
 						$('#response').text(JSON.stringify(result, null, 4));
@@ -69,6 +74,8 @@ var jsonRpc = (function($) {
 					}
 				},
 				error: function(xhr) {
+                    totalTime = new Date().getTime() - ajaxTime;
+                    $('#responsetime').text(" (" + totalTime/1000 + "s)");
 					alert(xhr.statusText);
 				}
 			});
