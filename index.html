@@ -11,6 +11,7 @@
     <meta content="Online Zabbix API tool - test your Zabbix API query in your browser" property="og:description">
     <meta content="appicon.png" property="og:image">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -161,9 +162,10 @@
 									placeholder="parameters as JSON object: {&quot;param1&quot;: &quot;value1&quot;, &quot;param2&quot;: &quot;value2&quot;, ...}"></textarea>
 						</div>
 						<div class="control-group">
-							<button id="execute" class="btn btn-primary" type="button">
+							<button id="execute" class="btn btn-primary has-spinner" type="button">                                
 								Check & execute
-								<i class="icon-play icon-white"></i>
+								<span class="play"><i class="icon-play icon-white"></i></span>
+                                <span class="spinner"><i class="icon-spin icon-refresh icon-white"></i></span>
 							</button>
 							<span id="formatJSON" class="btn">Check & format JSON</span> 
                             <span id="compressJSON" class="btn">Compress JSON</span>                                                        

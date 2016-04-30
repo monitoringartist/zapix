@@ -95,3 +95,35 @@ margin-bottom: 14px;
    display:none;
    background-color: #fff;
 }
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+
+  -webkit-transition: opacity 0s, width 0s;
+  -moz-transition: opacity 0s, width 0s;
+  -o-transition: opacity 0s, width 0s;
+  transition: opacity 0s, width 0s;
+}
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  width: auto; /* This doesn't work, just fix for unkown width elements */
+}
+
+.has-spinner.active .play {
+  opacity: 0;
+  width: 0;
+  display: none;  
+}
+.has-spinner .play {
+ display: inline-block;
+ width: 10px;
+}
+
+.has-spinner.btn.active .spinner {
+    width: 14px;
+}

@@ -43,6 +43,8 @@ var jsonRpc = (function($) {
 
 			$('#response, #request').empty();
 			$('#request').html(request);
+            $('#execute').addClass('active', {duration:0});
+            $('#responsetime').text("");
             ajaxTime= new Date().getTime();
 
 			$.ajax({
@@ -55,6 +57,7 @@ var jsonRpc = (function($) {
 				dataType: "text",
 				success: function(result) {
                     totalTime = new Date().getTime() - ajaxTime;
+                    $('#execute').removeClass('active', {duration:0});
                     $('#responsetime').text(" (" + totalTime/1000 + "s)");                    
 					try {
 						result = JSON.parse(result);
@@ -75,6 +78,7 @@ var jsonRpc = (function($) {
 				},
 				error: function(xhr) {
                     totalTime = new Date().getTime() - ajaxTime;
+                    $('#execute').removeClass('active', {duration:0});
                     $('#responsetime').text(" (" + totalTime/1000 + "s)");
 					alert(xhr.statusText);
 				}
