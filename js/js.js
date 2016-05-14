@@ -287,15 +287,21 @@ $(document).ready(function() {
     $('#loadMe').click(function (e) {
     if ($('#load').css('display') == 'none') {
         var docUrl = "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/')
-        if ($("#load").attr("src") != docUrl) {        
+        if ($("#load").attr("src") != docUrl) {
             $("#load").attr("src", docUrl);
         }
         $('#load').show();
     } else {
-       $('#load').hide();               
+       $('#load').hide();
     }
     });
-    
+
+    if (methods.indexOf($('#apimethod').val()) > -1 ) {
+        $('#loadMe').removeClass('disabled');
+    } else {
+        $('#loadMe').addClass('disabled');
+    }
+
 	config = new CConfig();
 
 	$('#saveRequest').click(function() {
@@ -389,7 +395,7 @@ $(document).ready(function() {
 			$('#apiparams').parent().addClass('error');
             $('#response, #request').empty();
             $('#responsetime').text("");
-            $('#testResult').show();            
+            $('#testResult').show();
             $('#testResult').html([
 				lint.error + "<br>" +
 				"<b>Evidence:</b> " + lint.evidence + "<br>" +
@@ -398,17 +404,17 @@ $(document).ready(function() {
 			].join(''));
 		}
     }
-    
+
     function paramsUpdate() {
         location.hash = 'apimethod=' + encodeURIComponent($('#apimethod').val()) + '&apiparams=' + encodeURIComponent($('#apiparams').val());
     }
-    
+
     $('#compressJSON').click(function(){
         var params;
         params = JSON.parse($('#apiparams').val());
         $('#apiparams').val(JSON.stringify(params, null, null));
         paramsUpdate();
-    });        
+    });
 
 	$('#formatJSON').click(function(){
 		var params;
@@ -477,23 +483,23 @@ $(document).ready(function() {
         limit: 14,
 		source: substringMatcher(methods)
 	});
-    
+
     if (location.hash.length) {
         var prms = getHashParams();
-        if ('apimethod' in prms) { 
+        if ('apimethod' in prms) {
             $('#apimethod').val(prms['apimethod']);
         }
-        if ('apiparams' in prms) { 
+        if ('apiparams' in prms) {
             $('#apiparams').val(prms['apiparams']);
-        }         
+        }
   }
 });
 
 $(document).on('search keyup change', '#apimethod', function () {
     var prms = getHashParams();
     var hash = '';
-    delete prms['apimethod']; 
-    $.each( prms, function( key, value ) {    
+    delete prms['apimethod'];
+    $.each( prms, function( key, value ) {
         hash = key + "=" + encodeURIComponent(value) + '&';
     });
     location.hash = 'apimethod=' + encodeURIComponent($(this).val()) + '&' + hash;
@@ -507,8 +513,8 @@ $(document).on('search keyup change', '#apimethod', function () {
 $(document).on('search keyup change', '#apiparams', function () {
     var prms = getHashParams();
     var hash = '';
-    delete prms['apiparams']; 
-    $.each( prms, function( key, value ) {    
+    delete prms['apiparams'];
+    $.each( prms, function( key, value ) {
         hash = key + "=" + encodeURIComponent(value) + '&';
     });
     location.hash = hash + 'apiparams=' + encodeURIComponent($(this).val());
