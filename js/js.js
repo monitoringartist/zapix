@@ -296,12 +296,6 @@ $(document).ready(function() {
     }
     });
 
-    if (methods.indexOf($('#apimethod').val()) > -1 ) {
-        $('#loadMe').removeClass('disabled');
-    } else {
-        $('#loadMe').addClass('disabled');
-    }
-
 	config = new CConfig();
 
 	$('#saveRequest').click(function() {
@@ -492,7 +486,13 @@ $(document).ready(function() {
         if ('apiparams' in prms) {
             $('#apiparams').val(prms['apiparams']);
         }
-  }
+    }
+    
+    if (methods.indexOf($('#apimethod').val()) > -1 ) {
+        $('#loadMe').removeClass('disabled');
+    } else {
+        $('#loadMe').addClass('disabled');
+    }    
 });
 
 $(document).on('search keyup change', '#apimethod', function () {
