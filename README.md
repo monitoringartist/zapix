@@ -19,8 +19,10 @@ for free:
 # Examples
 
 - [host.get](http://monitoringartist.github.io/zapix/#apimethod=host.get&apiparams={%0A%20%20%20%20%22output%22%3A%20%22extend%22%2C%0A%20%20%20%20%22filter%22%3A%20{%0A%20%20%20%20%20%20%20%20%22host%22%3A%20[%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Zabbix.org%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Linux%20server%22%0A%20%20%20%20%20%20%20%20]%0A%20%20%20%20}%0A})
+- [trigger.get](http://monitoringartist.github.io/zapix/#apimethod=trigger.get&apiparams={%0A%20%20%20%20%22output%22%3A%20[%0A%20%20%20%20%20%20%20%20%22triggerid%22%2C%0A%20%20%20%20%20%20%20%20%22description%22%2C%0A%20%20%20%20%20%20%20%20%22priority%22%2C%0A%20%20%20%20%20%20%20%20%22error%22%0A%20%20%20%20]%2C%0A%20%20%20%20%22expandDescription%22%3A%201%2C%0A%20%20%20%20%22selectHosts%22%3A%20%22extend%22%2C%0A%20%20%20%20%22filter%22%3A%20{%0A%20%20%20%20%20%20%20%20%22value%22%3A%201%2C%0A%20%20%20%20%20%20%20%20%22status%22%3A%200%0A%20%20%20%20}%0A})
 - [script.get](http://monitoringartist.github.io/zapix/#apimethod=script.get&apiparams={%0A%20%20%20%20%22output%22%3A%20%22extend%22%0A})
 - [user.get](http://monitoringartist.github.io/zapix/#apimethod=user.get&apiparams={%0A%20%20%20%20%22output%22%3A%20%22extend%22%0A})
+
 
 # Original project
 
