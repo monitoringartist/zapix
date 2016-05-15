@@ -475,8 +475,16 @@ $(document).ready(function() {
 	{
 		name: 'apimethods',
         limit: 14,
-		source: substringMatcher(methods)
+		source: substringMatcher(methods),        
 	});
+    
+    $('#apimethod').on('typeahead:selected typeahead:autocompleted', function (e, datum) {
+        if (methods.indexOf($('#apimethod').val()) > -1 ) {
+            $('#loadMe').removeClass('disabled');
+        } else {
+            $('#loadMe').addClass('disabled');
+        }     
+    });
 
     if (location.hash.length) {
         var prms = getHashParams();
