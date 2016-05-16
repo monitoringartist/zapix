@@ -477,14 +477,6 @@ $(document).ready(function() {
         limit: 14,
 		source: substringMatcher(methods),        
 	});
-    
-    $('#apimethod').on('typeahead:selected typeahead:autocompleted', function (e, datum) {
-        if (methods.indexOf($('#apimethod').val()) > -1 ) {
-            $('#loadMe').removeClass('disabled');
-        } else {
-            $('#loadMe').addClass('disabled');
-        }     
-    });
 
     if (location.hash.length) {
         var prms = getHashParams();
@@ -503,7 +495,7 @@ $(document).ready(function() {
     }    
 });
 
-$(document).on('search keyup change', '#apimethod', function () {
+$(document).on('search keyup change typeahead:selected typeahead:autocompleted', '#apimethod', function () {
     var prms = getHashParams();
     var hash = '';
     delete prms['apimethod'];
