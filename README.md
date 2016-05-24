@@ -22,7 +22,7 @@ for free:
 - [trigger.get](http://monitoringartist.github.io/zapix/#apimethod=trigger.get&apiparams={%0A%20%20%20%20%22output%22%3A%20[%0A%20%20%20%20%20%20%20%20%22triggerid%22%2C%0A%20%20%20%20%20%20%20%20%22description%22%2C%0A%20%20%20%20%20%20%20%20%22priority%22%2C%0A%20%20%20%20%20%20%20%20%22error%22%0A%20%20%20%20]%2C%0A%20%20%20%20%22expandDescription%22%3A%201%2C%0A%20%20%20%20%22selectHosts%22%3A%20%22extend%22%2C%0A%20%20%20%20%22filter%22%3A%20{%0A%20%20%20%20%20%20%20%20%22value%22%3A%201%2C%0A%20%20%20%20%20%20%20%20%22status%22%3A%200%0A%20%20%20%20}%0A})
 - [script.get](http://monitoringartist.github.io/zapix/#apimethod=script.get&apiparams={%0A%20%20%20%20%22output%22%3A%20%22extend%22%0A})
 - [user.get](http://monitoringartist.github.io/zapix/#apimethod=user.get&apiparams={%0A%20%20%20%20%22output%22%3A%20%22extend%22%0A})
-
+- [action.create](http://monitoringartist.github.io/zapix/#apimethod=action.create&apiparams={%0A%20%20%20%20%22name%22%3A%20%22Auto%20registration%22%2C%0A%20%20%20%20%22eventsource%22%3A%202%2C%0A%20%20%20%20%22status%22%3A%200%2C%0A%20%20%20%20%22esc_period%22%3A%20120%2C%0A%20%20%20%20%22operations%22%3A%20[%0A%20%20%20%20%20%20%20%20{%0A%20%20%20%20%20%20%20%20%20%20%20%20%22operationtype%22%3A%206%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22optemplate%22%3A%20[%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20{%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22templateid%22%3A%20%2210001%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20}%0A%20%20%20%20%20%20%20%20%20%20%20%20]%0A%20%20%20%20%20%20%20%20}%0A%20%20%20%20]%0A})
 
 # Original project
 
