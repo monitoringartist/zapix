@@ -173,8 +173,12 @@
 					</form>
 				</div>
 				<div class="span6">
+                
 					<div id="rsp">Request:</div>
-					<pre><code id="request" class="language-js"></code></pre>
+                    <div id="wrequest">                  
+                        <a class="btncpy" data-clipboard-target="#request" title="Copy to clipboard"></a>                              
+    					<pre><code id="request" class="language-js"></code></pre>
+                    </div>                    
 				</div>
 			</div>
 			Response<span id="responsetime"></span>:
@@ -188,5 +192,6 @@
 <script type="text/javascript" src="js/jsonrpc.js"></script>
 <script type="text/javascript" src="js/jsonlint.js"></script>
 <script type="text/javascript" src="js/js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 </body>
 </html>

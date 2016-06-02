@@ -284,6 +284,8 @@ CConfig.prototype = {
 };
 
 $(document).ready(function() {
+    new Clipboard('.btncpy');
+    
     $('#loadMe').click(function (e) {
     if ($('#load').css('display') == 'none') {
         var docUrl = "https://www.zabbix.com/documentation/3.0/manual/api/reference/" + $('#apimethod').val().replace('.','/')
