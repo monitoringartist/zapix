@@ -519,7 +519,7 @@ $(document).on('search keyup change', '#apiparams', function () {
     $.each( prms, function( key, value ) {
         hash = key + "=" + encodeURIComponent(value) + '&';
     });
-    location.hash = hash + 'apiparams=' + encodeURIComponent($(this).val());
+    location.hash = hash + 'apiparams=' + encodeURIComponent($(this).val().replace("\\","\\\\"));
 })
 
 function getHashParams() {
