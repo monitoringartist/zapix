@@ -42,7 +42,7 @@ var jsonRpc = (function($) {
 			request = JSON.stringify(request);
 
 			$('#response, #request').empty();
-			$('#request').html(request);
+			$('#request').html(request.replace("<","&lt;").replace(">","&gt;"));
             $('#execute').addClass('active', {duration:0});
             $('#responsetime').text("");
             ajaxTime= new Date().getTime();
