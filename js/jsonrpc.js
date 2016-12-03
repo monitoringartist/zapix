@@ -11,7 +11,7 @@ var jsonRpc = (function($) {
 
 	return {
 		connect: function(host, user, pass, params) {
-			hostname = host + "/api_jsonrpc.php";
+			hostname = host.replace(/\/+$/, '') + "/api_jsonrpc.php";
 
 			params = params || {};
 			if (typeof params.xdebugsid !== 'undefined') {
@@ -22,6 +22,12 @@ var jsonRpc = (function($) {
 				sessionid = result;
 				$('#connections').modal('hide');
 				$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
+                // detect zabbix api version
+                /*
+                this.call('apiinfo.version', {}, function(result) {
+                   console.log(result);
+                });
+                */
 			});
 		},
 
@@ -38,6 +44,9 @@ var jsonRpc = (function($) {
 			};
 			if (params !== '') {
 				request['params'] = params;
+			}
+			if (method == 'apiinfo.version' || method == 'user.login') {
+                delete request.auth;
 			}
 			request = JSON.stringify(request);
 
