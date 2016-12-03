@@ -22,13 +22,13 @@ var jsonRpc = (function($) {
 				sessionid = result;
 				$('#connections').modal('hide');
 				$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
-                // detect zabbix api version
-                /*
-                this.call('apiinfo.version', {}, function(result) {
-                   console.log(result);
-                });
-                */
 			});
+            /*
+            // TODO detect API version and update doc link/typeahed function list
+            this.call('apiinfo.version', [], function(result2) {
+                console.log(result2);
+            });
+            */
 		},
 
 		call: function(method, params, onSuccess) {
