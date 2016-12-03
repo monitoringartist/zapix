@@ -1,3 +1,5 @@
+[<img src="https://monitoringartist.github.io/managed-by-monitoringartist.png" alt="Managed by Monitoring Artist: DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring" align="right"/>](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
+
 # Zapix - online Zabbix API tool
 
 Visit http://monitoringartist.github.io/zapix/ and test Zabbix API queries
