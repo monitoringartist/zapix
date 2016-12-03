@@ -1,7 +1,7 @@
 # Zapix - online Zabbix API tool
 
 Visit http://monitoringartist.github.io/zapix/ and test your Zabbix API query
-in your broser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
+in your browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
 you can use still write older methods manually. All credentials are stored in 
 your browser only. See [examples](https://github.com/monitoringartist/zapix#examples).
 
