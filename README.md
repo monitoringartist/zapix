@@ -1,13 +1,13 @@
 # Zapix - online Zabbix API tool
 
-Visit http://monitoringartist.github.io/zapix/ and test your Zabbix API query
-in your browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
-you can use still write older methods manually. All credentials are stored in 
-your browser only. See [examples](https://github.com/monitoringartist/zapix#examples).
+Visit http://monitoringartist.github.io/zapix/ and test Zabbix API queries
+in the browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
+you can use still write older/newer methods manually. All credentials are stored
+in your browser only. See [examples](https://github.com/monitoringartist/zapix#examples).
 
 ## Quick start
 
-Connect to http://zabbix.org/zabbix/ (guest user) and get all hosts:
+Connect to http://zabbix.org/zabbix/ (login guest, no password) and get all hosts:
 
 ![Zapix doc](https://raw.githubusercontent.com/monitoringartist/zapix/gh-pages/doc/zabbix-zapix.gif)
 
@@ -31,10 +31,10 @@ https://bitbucket.org/Vedmak/zapix
 
 # Author
 
-[Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring'),
+[Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
 who loves monitoring systems, which start with letter Z. Those are Zabbix and Zenoss.
 
 Professional devops / monitoring services:
 
 [![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)]
-(http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
+(http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
