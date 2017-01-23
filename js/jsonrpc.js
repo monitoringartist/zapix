@@ -76,7 +76,7 @@ var jsonRpc = (function($) {
                         } else {
                             suffix = '';
                         }
-                        $('#responsetime').text(" (" + totalTime/1000 + "s, " + result.result.length + " value" + suffix + " in the response array)");
+                        $('#responsetime').text(" (" + totalTime/1000 + "s, " + result.result.length + " value" + suffix + " in the result array)");
 						if (typeof result.result !== 'undefined') {
 							if (typeof onSuccess !== 'undefined') {
 								onSuccess(result.result);
