@@ -67,10 +67,10 @@ var jsonRpc = (function($) {
 				success: function(result) {
                     totalTime = new Date().getTime() - ajaxTime;
                     $('#execute').removeClass('active', {duration:0});
-                    $('#responsetime').text(" (" + totalTime/1000 + "s)");                    
 					try {
 						result = JSON.parse(result);
 						$('#response').text(JSON.stringify(result, null, 4));
+                        $('#responsetime').text(" (" + totalTime/1000 + "s, " + result.result.length + " values in the response array)");
 						if (typeof result.result !== 'undefined') {
 							if (typeof onSuccess !== 'undefined') {
 								onSuccess(result.result);
