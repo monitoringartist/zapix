@@ -70,7 +70,12 @@ var jsonRpc = (function($) {
 					try {
 						result = JSON.parse(result);
 						$('#response').text(JSON.stringify(result, null, 4));
-                        $('#responsetime').text(" (" + totalTime/1000 + "s, " + result.result.length + " values in the response array)");
+                        if (result.result.length != 1) {
+                            suffix = 's';
+                        } else {
+                            suffix = '';
+                        }
+                        $('#responsetime').text(" (" + totalTime/1000 + "s, " + result.result.length + " value" + suffix + " in the response array)");
 						if (typeof result.result !== 'undefined') {
 							if (typeof onSuccess !== 'undefined') {
 								onSuccess(result.result);
