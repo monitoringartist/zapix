@@ -70,7 +70,8 @@ var jsonRpc = (function($) {
 					try {
 						result = JSON.parse(result);
 						$('#response').text(JSON.stringify(result, null, 4));
-                        if (result.result.length != 1) {
+                        var suffix;
+                        if (result.result.length !== 1) {
                             suffix = 's';
                         } else {
                             suffix = '';
