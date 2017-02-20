@@ -5,13 +5,13 @@
 Visit http://monitoringartist.github.io/zapix/ and test Zabbix API queries
 in the browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
 you can use still write older/newer methods manually. All credentials are stored
-in your browser only. See [examples](https://github.com/monitoringartist/zapix#examples).
+in your browser only. See [examples](#examples).
 
 ## Quick start
 
 Connect to http://zabbix.org/zabbix/ (login guest, no password) and get all hosts:
 
-![Zapix doc](https://raw.githubusercontent.com/monitoringartist/zapix/gh-pages/doc/zabbix-zapix.gif)
+![Zapix doc](doc/zabbix-zapix.gif)
 
 Please donate to author, so he can continue to publish other awesome projects 
 for free:
