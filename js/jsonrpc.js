@@ -87,7 +87,12 @@ var jsonRpc = (function($) {
 						}
 					}
 					catch (e) {
-						$('#response').html(result);
+						if (respone.hasOwnProperty("error")) {
+							$('#response').text(JSON.stringify(result, null, 4));
+						} 
+						else {						
+							$('#response').html(result);
+						}
 						alert('Api response not in JSON format.');
 					}
 				},
