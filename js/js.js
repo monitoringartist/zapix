@@ -284,7 +284,19 @@ CConfig.prototype = {
 };
 
 $(document).ready(function() {
+    if (location.protocol == "http:") {
+       $('#httpsli').show();
+    }
+
     new Clipboard('.btncpy');
+
+    $('#https').click(function() {
+       if (location.protocol == "http:") {
+         $('#https').attr("href", "https://" + window.location.host + window.location.pathname);
+       } else {
+         return false;
+       }
+    });
     
     $('#loadMe').click(function (e) {
     if ($('#load').css('display') == 'none') {
