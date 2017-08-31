@@ -3,11 +3,12 @@
 # Zapix - online Zabbix API tool
 
 Visit http://monitoringartist.github.io/zapix/ and test Zabbix API queries
-in the browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
-you can use still write older/newer methods manually. All credentials are stored
-in your browser only. See [examples](#examples).
+in the browser. Autocomplete detects used Zabbix version (3.0/3.2/3.4) automatically
+and it will offer only API methods and documentation related for connected Zabbix
+version, however you can use still write older/newer methods manually. All
+credentials are stored in your browser only. See [examples](#examples).
 
-If you want to use docker, just build and run the image locally.
+If you want to use Docker, just build and run the image locally:
 
 ```shell
 docker build -t monitoringartist/zapix .
@@ -54,9 +55,9 @@ Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsea
 Kibana, Prometheus, Sysdig, ...
 
 Summary:
-* 1000+ [GitHub](https://github.com/monitoringartist/) stars
-* 6000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
-* 800 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
+* 2000+ [GitHub](https://github.com/monitoringartist/) stars
+* 10 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
 Professional devops / monitoring / consulting services:
 
