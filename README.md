@@ -7,6 +7,15 @@ in the browser. Autocomplete offers only Zabbix 3.0 API methods and doc, however
 you can use still write older/newer methods manually. All credentials are stored
 in your browser only. See [examples](#examples).
 
+If you want to use docker, just build and run the image locally.
+
+```shell
+docker build -t monitoringartist/zapix .
+docker run -p 8080:80 -d monitoringartist/zapix
+```
+
+After this, you can access http://localhost:8080 in your browser.
+
 ## Quick start
 
 Connect to http://zabbix.org/zabbix/ (login guest, no password) and get all hosts:
