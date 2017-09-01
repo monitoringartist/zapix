@@ -875,7 +875,7 @@ $(document).ready(function() {
             $('#apimethod').val(prms['apimethod']);
         }
         if ('apiparams' in prms) {
-            $('#apiparams').val(prms['apiparams']);
+            ace.setValue(prms['apiparams']);
         }
     }
     
