@@ -625,9 +625,13 @@ CConfig.prototype = {
 	login: '',
 	password: '',
 	auth: '',
+	ace: {},
 
 	init: function(){
 		this.connections = JSON.parse(localStorage.getItem('connections')) || {};
+
+		this.ace = ace.edit("apiparams");
+		this.ace.getSession().setMode("ace/mode/json");
 
 		var that = this;
 		$('#host').change(function(){
@@ -717,10 +721,11 @@ $(document).ready(function() {
     });
 
 	config = new CConfig();
+	ace = config.ace;
 
 	$('#saveRequest').click(function() {
 		$('#saveRequestMethod').val($('#apimethod').val());
-		$('#saveRequestParams').val($('#apiparams').val());
+		$('#saveRequestParams').val(ace.getValue());
 	});
 
 	$('#saveRequestOk').click(function() {
@@ -782,9 +787,9 @@ $(document).ready(function() {
         paramsUpdate();
 		var params;
 		try {
-			params = $('#apiparams').val();
+			params = ace.getValue();
 			if (params !== '') {
-				params = JSON.parse($('#apiparams').val());
+				params = JSON.parse(ace.getValue());
 			}
 			jsonRpc.call($('#apimethod').val(), params);
 		}
@@ -794,12 +799,12 @@ $(document).ready(function() {
 	});
 
     function testOnly(){
-        if ($('#apiparams').val() == '') {
+        if (ace.getValue() == '') {
             $('#apiparams').parent().removeClass('error');
             $('#testResult').hide();
             return true;
         }
-        lint = window.JSONLint( $('#apiparams').val(), { comments: false } );
+        lint = window.JSONLint( ace.getValue(), { comments: false } );
 
         if ( ! lint.error ) {
 			$('#apiparams').parent().removeClass('error');
@@ -820,33 +825,32 @@ $(document).ready(function() {
     }
 
     function paramsUpdate() {
-        location.hash = 'apimethod=' + encodeURIComponent($('#apimethod').val()) + '&apiparams=' + encodeURIComponent($('#apiparams').val());
+        location.hash = 'apimethod=' + encodeURIComponent($('#apimethod').val()) + '&apiparams=' + encodeURIComponent(ace.getValue());
     }
 
     $('#compressJSON').click(function(){
         var params;
-        params = JSON.parse($('#apiparams').val());
-        $('#apiparams').val(JSON.stringify(params, null, null));
+        params = JSON.parse(ace.getValue());
+        ace.setValue(JSON.stringify(params, null, null));
         paramsUpdate();
     });
 
 	$('#formatJSON').click(function(){
 		var params;
-        if ($('#apiparams').val() == '') {
+        if (ace.getValue() == '') {
             $('#apiparams').parent().removeClass('error');
             $('#testResult').hide();
             return true;
         }
-        lint = window.JSONLint( $('#apiparams').val(), { comments: false } );
-
+        lint = window.JSONLint( ace.getValue(), { comments: false } );
         if ( ! lint.error ) {
 			$('#apiparams').parent().removeClass('error');
             $('#response, #request').empty();
             $('#responsetime').text("");
             $('#testResult').hide();
     	    try {
-    			params = JSON.parse($('#apiparams').val());
-    			$('#apiparams').val(JSON.stringify(params, null, 4));
+                params = JSON.parse(ace.getValue());
+                ace.setValue(JSON.stringify(params, null, 4));
                 paramsUpdate();
     		}
     		catch(e) {
