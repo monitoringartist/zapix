@@ -8,14 +8,19 @@ and it will offer only API methods and documentation related for connected Zabbi
 version, however you can use still write older/newer methods manually. All
 credentials are stored in your browser only. See [examples](#examples).
 
-If you want to use Docker, just build and run the image locally:
+- If you want to use Docker, just build and run the image locally:
+  ```shell
+  docker build -t monitoringartist/zapix .
+  docker run -p 8080:80 -d monitoringartist/zapix
+  ```
 
-```shell
-docker build -t monitoringartist/zapix .
-docker run -p 8080:80 -d monitoringartist/zapix
-```
+- If you want to use Docker-compose with some basic http authentication (change user and password in .env file or use zapix/zapix), just run:
+  ```shell
+  docker-compose up -d
+  ```
 
-After this, you can access http://localhost:8080 in your browser.
+- After this, you can access http://localhost:8080 in your browser.
+
 
 ## Quick start
 

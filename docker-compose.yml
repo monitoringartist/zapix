@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx:
+    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    ports:
+      - 8080:80
+    environment:
+      - BASIC_AUTH_USERNAME=${ZAPIX_USERNAME}
+      - BASIC_AUTH_PASSWORD=${ZAPIX_PASSWORD}
+      - PROXY_PASS=http://zapix/
+  zapix:
+    container_name: zapix
+    hostname: zapix
+    restart: unless-stopped
+    build:
+      context: ./
+    expose:
+      - 80
