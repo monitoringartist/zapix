@@ -17,13 +17,22 @@ var jsonRpc = (function($) {
 			if (typeof params.xdebugsid !== 'undefined') {
 				hostname += '?XDEBUG_SESSION_START=' + params.xdebugsid;
 			}
-
-			this.call('user.login', {user: user, password: pass}, function(result) {
-				sessionid = result;
-				$('#connections').modal('hide');
-				$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
-        jsonRpc.versioning();
-			});
+			try {
+				this.call('username.login', {user: user, password: pass}, function(result) {
+					sessionid = result;
+					$('#connections').modal('hide');
+					$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
+					jsonRpc.versioning();
+				});
+			}
+			catch (e) {
+				this.call('user.login', {user: user, password: pass}, function(result) {
+					sessionid = result;
+					$('#connections').modal('hide');
+					$("#connInfo").text('Connected to ' + config.host.replace('https://', '').replace('http://',''));
+					jsonRpc.versioning();
+				});
+			}
 		},
 
 		versioning: function() {
